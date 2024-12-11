@@ -1,0 +1,50 @@
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .main-room {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .chat-display {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+  
+  .student-item {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .student-item:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  .notification-badge {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

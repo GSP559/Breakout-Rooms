@@ -8,10 +8,12 @@ function App() {
   const [role, setRole] = useState('');
   const [instructorConnected, setInstructorConnected] = useState(false);
   const [ws, setWs] = useState(null);
+  const [mainRoomCreated, setMainRoomCreated] = useState(false);
+
 
   useEffect(() => {
     // Connect to the server to listen for instructor status updates
-    const socket = new WebSocket('ws://localhost:8000/ws/status');
+    const socket = new WebSocket('ws://3.94.119.197:8000/ws/status');
     setWs(socket);
 
     socket.onopen = () => {
@@ -30,6 +32,9 @@ function App() {
 
       if (data.type === 'INSTRUCTOR_STATUS') {
         setInstructorConnected(data.connected === true);
+      }
+      if(data.type === 'MAIN_ROOM_STATUS') {
+        setMainRoomCreated(data.created === true);
       }
     };
 
@@ -64,10 +69,14 @@ function App() {
   // If student is chosen:
   // Show waiting screen if instructor not connected
   if (role === 'student') {
-    if (!instructorConnected) {
+    if (!instructorConnected || !mainRoomCreated) {
       return (
         <div style={{ padding: '20px' }}>
-          <h1>Waiting for the instructor to connect...</h1>
+          <h1>
+            {!instructorConnected
+              ? 'Waiting for the instructor to connect...'
+              : 'Waiting for the instructor to create the main room...'}
+          </h1>
         </div>
       );
     }

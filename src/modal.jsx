@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import './modal.css';
 
-function InstructorModal({ show, onClose, chatTarget, students, instructor, onSendMessage }) {
+function InstructorModal({
+  show,
+  onClose,
+  chatTarget,
+  students,
+  instructor,
+  onSendMessage,
+  handleCreatePrivateBreakout,
+  handleJoinRoomHelp,
+}) {
   const [message, setMessage] = useState('');
   const target =
     chatTarget === 'Instructor'
@@ -13,23 +22,40 @@ function InstructorModal({ show, onClose, chatTarget, students, instructor, onSe
   const handleSend = () => {
     if (message.trim()) {
       onSendMessage(chatTarget, message);
-      if (chatTarget === 'Instructor') {
         target.messages.push({ from: 'Me', content: message });
-      }
       setMessage('');
     }
   };
 
-   return (
+  return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>
           &times;
         </button>
-        <h2>Chat with {chatTarget}</h2>
+        <div className="modal-header">
+          <button
+            className="modal-button"
+            onClick={() => handleCreatePrivateBreakout(chatTarget)}
+          >
+            Create Private Breakout
+          </button>
+          <button
+            className="modal-button"
+            onClick={() => handleJoinRoomHelp(chatTarget)}
+          >
+            Help Student
+          </button>
+        </div>
+        <h2 className="chat-title">Chat with {chatTarget}</h2>
         <div className="chat-display">
-          {target.messages.map((msg, idx) => (
-            <div key={idx} className={`chat-message ${msg.from === 'Me' ? 'sent' : 'received'}`}>
+          {target.messages?.map((msg, idx) => (
+            <div
+              key={idx}
+              className={`chat-message ${
+                msg.from === 'Me' ? 'sent' : 'received'
+              }`}
+            >
               <strong>{msg.from}:</strong> {msg.content}
             </div>
           ))}
@@ -47,4 +73,5 @@ function InstructorModal({ show, onClose, chatTarget, students, instructor, onSe
     </div>
   );
 }
+
 export default InstructorModal;

@@ -52,6 +52,6 @@ This project is a **Web-Based Classroom Management System** designed for real-ti
 - Install dependencies using:
   ```bash
   pip install fastapi uvicorn
-
-  ### Frontend:
+``
+### Frontend:
   

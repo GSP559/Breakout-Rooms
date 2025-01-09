@@ -1,74 +1,54 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Web-Based Breakout Rooms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+This project is a **Web-Based Classroom Management System** designed for real-time interaction between instructors and students. The system enables role-based functionalities, including chat, breakout room management, and status monitoring, using **React** for the frontend and **FastAPI** for the backend.
 
-## Available Scripts
+## Features
+- **Instructor Role**:
+  - Manage student connections.
+  - Broadcast messages to the entire class or specific breakout rooms.
+  - Create and manage breakout rooms.
+  - Respond to help requests from students.
+- **Student Role**:
+  - Participate in the main room or assigned breakout rooms.
+  - Send help requests to the instructor.
+  - Communicate through private or public messages.
+- **Real-Time Interaction**:
+  - WebSocket-based communication for status updates, role-specific messaging, and room transitions.
+- **Dynamic Role Selection**:
+  - Users can choose to join as either an instructor or a student.
 
-In the project directory, you can run:
+## Key Files
+### Backend
+#### `server.py`:
+- Implements a FastAPI server with WebSocket endpoints for:
+  - Managing instructor and student connections.
+  - Handling chat messages and room transitions.
+  - Broadcasting updates to clients.
 
-### `npm start`
+### Frontend
+#### `App.js`:
+- Manages the role-based rendering of the application:
+  - Displays role selection if no role is chosen.
+  - Shows instructor or student-specific interfaces based on the selected role.
+  
+#### `RoleSelect.jsx`:
+- Provides a UI for users to select their role (Instructor/Student).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### `modal.jsx` and `StudentModal.jsx`:
+- Modals for chat and room management:
+  - Instructors can create breakout rooms and help students.
+  - Students can chat with the instructor or peers in their room.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### `index.js`:
+- Entry point for the React application, rendering the `App` component.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Breakout-Rooms
->>>>>>> e014579f8f147aafcd5f926b1b8a319f1571e459
+## Dependencies
+### Backend:
+- Python Libraries:
+  - `fastapi`
+  - `uvicorn`
+  - `json`
+- Install dependencies using:
+  ```bash
+  pip install fastapi uvicorn

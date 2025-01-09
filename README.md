@@ -53,4 +53,22 @@ This project is a **Web-Based Classroom Management System** designed for real-ti
   ```bash
   pip install fastapi uvicorn
 ### Frontend:
+- React and supporting libraries:
+  - react
+  - react-dom
+- Install dependencies using:
+  ```bash
+  npm install
+## How to Run
+### Backend:
+1. Navigate to the backend folder.
+2. Start the FastAPI server:
+   ```bash
+   uvicorn server:app --reload
+### Frontend:
+1. Navigate to the React project folder.
+2. Start the React development server:
+   ```bash
+   npm start
+ 
   

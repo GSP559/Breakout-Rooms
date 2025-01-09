@@ -70,5 +70,3 @@ This project is a **Web-Based Classroom Management System** designed for real-ti
 2. Start the React development server:
    ```bash
    npm start
- 
-  
